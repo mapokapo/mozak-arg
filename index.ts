@@ -74,6 +74,14 @@ app.use(
   })
 );
 
+if (process.env["NODE_ENV"] !== "production") {
+  app.use(
+    serveStatic({
+      root: "./private",
+    })
+  );
+}
+
 export default {
   fetch: app.fetch,
   port: process.env["PORT"] ?? 5000,
