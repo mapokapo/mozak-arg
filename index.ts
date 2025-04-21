@@ -11,6 +11,11 @@ import { serveStatic } from "hono/bun";
  */
 const taskUuidTempMap: Record<string, number> = {};
 
+/**
+ * This is a list of winning codes that are generated when the user wins the game.
+ */
+const winningCodes: string[] = [];
+
 const app = new Hono()
   .get(
     "/task/:uuid",
@@ -42,6 +47,38 @@ const app = new Hono()
     }
   )
   .post(
+    "/mozak",
+    zValidator(
+      "json",
+      z.object({
+        currentSum: z.number().int().min(0).max(100),
+      })
+    ),
+    c => {
+      const { currentSum } = c.req.valid("json");
+
+      let mozakInput = Math.floor(Math.random() * 9) + 1;
+      if ((currentSum % 11) - 1 != 0) {
+        mozakInput = (12 - (currentSum % 11)) % 11;
+      }
+
+      if (100 - (currentSum + mozakInput) >= 10) {
+        // korisnik je pobijedio
+        const winningCode = uuid();
+        winningCodes.push(winningCode);
+
+        return c.json({
+          mozakInput,
+          winningCode: winningCode,
+        });
+      }
+
+      return c.json({
+        mozakInput,
+      });
+    }
+  )
+  .post(
     "/solve",
     zValidator(
       "json",
@@ -52,6 +89,14 @@ const app = new Hono()
     ),
     c => {
       const { taskIndex, answer } = c.req.valid("json");
+
+      if (taskIndex === answers.length) {
+        const hasWon = winningCodes.some(code => code === answer);
+        if (hasWon) {
+          return c.json({ correct: true, hasWon: true }, 200);
+        }
+        return c.json({ correct: false, hasWon: false }, 200);
+      }
 
       const correctAnswers = answers[taskIndex];
 

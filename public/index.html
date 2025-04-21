@@ -99,6 +99,14 @@
           }
 
           if (data.correct) {
+            if (data.hasWon) {
+              const winningCode = localStorage.getItem("winningCode");
+              alert(
+                "Čestitamo, uspjeli ste pobijediti MoZak-a! Vaš dobitni kod je: " +
+                  winningCode
+              );
+              return;
+            }
             alert(
               `Točno! Link na sljedeći zadatak je http://localhost:5000/task/${data.nextTaskUrl}`
             );

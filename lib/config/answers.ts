@@ -17,5 +17,4 @@ export const answers = [
   "TINKER",
   ["8RXJ+XC", "8RXJ+W7P", "8RXH+WXP"],
   "GOLDENRATIO",
-  "SYNAPSE",
 ];
