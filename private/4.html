@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>MoZak!</title>
+    <style>
+      body {
+        font-family: "Courier New", Courier, monospace;
+        background-color: #f7f7e6;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+        margin: 0;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      p,
+      a {
+        font-size: 1.25rem;
+        margin: 20px 0;
+      }
+      p {
+        margin-left: 20px;
+      }
+      hr {
+        width: 100%;
+        border: 1px solid #ccc;
+        margin: 20px 0;
+      }
+      div:not(:first-of-type) {
+        margin-right: auto;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      button {
+        border: none;
+        background-color: transparent;
+        color: #007bff;
+        font-size: 1.25rem;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      nav {
+        position: absolute;
+        top: 0;
+      }
+      .hints {
+        position: absolute;
+        bottom: 0;
+        width: 50%;
+        text-align: center;
+      }
+      .hints li {
+        display: none;
+        padding-left: 0;
+        margin-bottom: 2rem;
+      }
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+    </style>
+  </head>
+  <body>
+    <h1>Riječ</h1>
+    <div>
+      <p>
+        Uz tok Neretve gdje stari kameni luk spava,<br />
+        tlo raznolikog znanja vječno budi snove -<br />
+        u njegovom imenu čuči prvi pojam na koji misliš.
+      </p>
+
+      <p>
+        U sobama svjetla i knjiga neprestan rad,<br />
+        tim mladih umova gradi zidove svijeta -<br />
+        tko marljivo uči, istražuje i piše?
+      </p>
+    </div>
+    <hr />
+    <div>
+      <p>Pitanje:</p>
+      <p>
+        Koju riječ dobijemo spajanjem prvih dvaju slova svake ključne riječi iz
+        ove dvije strofe?
+      </p>
+      <p>
+        Ta riječ vam je
+        <a
+          href="https://en.wikipedia.org/wiki/Blaise_de_Vigen%C3%A8re"
+          target="_blank"
+          >ključ</a
+        >.
+      </p>
+    </div>
+    <hr />
+    <div>
+      <p>Iskoristite ključ da saznate sljedeću lokaciju: RCJMUQS</p>
+      <p>
+        Odgovor vam je
+        <a
+          href="https://maps.google.com/pluscodes/"
+          target="_blank"
+          >lokacijska šifra</a
+        >
+        za tu lokaciju.
+      </p>
+    </div>
+    <nav>
+      <button onclick="revealHint()">Treba vam pomoć?</button>
+    </nav>
+    <ol class="hints">
+      <li>Ključna riječ prve strofe je grad.</li>
+      <li>
+        Ključna riječ druge strofe je ime za osobu koja pohađa ustanovu višeg
+        obrazovanja.
+      </li>
+      <li>
+        Ključ ćete koristi za dešifriranje lokacije (RCJMUQS). Šifra je nazvana
+        po prezimenu osobe koja je nalazi u prvom linku na ovoj stranici.
+      </li>
+    </ol>
+
+    <script>
+      const hints = document.querySelectorAll(".hints li");
+      const button = document.querySelector("button");
+      let currentlyRevealed = 0;
+
+      function revealHint() {
+        if (currentlyRevealed < hints.length) {
+          hints[currentlyRevealed].style.display = "block";
+          currentlyRevealed++;
+
+          button.innerText = "Treba vam još savjeta?";
+
+          if (currentlyRevealed === hints.length) {
+            button.innerText = "Nema više savjeta!";
+            button.disabled = true;
+            button.style.cursor = "not-allowed";
+            button.style.color = "#ccc";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

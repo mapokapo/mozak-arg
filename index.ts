@@ -33,7 +33,9 @@ const app = new Hono()
         return c.json({ error: "Task index out of range" }, 400);
       }
 
-      const nextTaskHtml = await Bun.file(`./private/${taskIndex}.html`).text();
+      const nextTaskHtml = await Bun.file(
+        `./private/${taskIndex + 1}.html`
+      ).text();
       return c.html(nextTaskHtml, 200, {
         "Content-Type": "text/html",
       });
@@ -51,13 +53,24 @@ const app = new Hono()
     c => {
       const { taskIndex, answer } = c.req.valid("json");
 
-      const correctAnswer = answers[taskIndex];
+      const correctAnswers = answers[taskIndex];
 
-      if (correctAnswer === undefined) {
+      if (correctAnswers === undefined) {
         return c.json({ error: "Task index out of range" }, 400);
       }
 
-      if (correctAnswer.trim().toLowerCase() === answer.trim().toLowerCase()) {
+      let isCorrect = false;
+      if (Array.isArray(correctAnswers)) {
+        isCorrect = correctAnswers.some(
+          correctAnswer =>
+            correctAnswer.trim().toLowerCase() === answer.trim().toLowerCase()
+        );
+      } else {
+        isCorrect =
+          correctAnswers.trim().toLowerCase() === answer.trim().toLowerCase();
+      }
+
+      if (isCorrect) {
         const nextTaskTempUuid = uuid();
         taskUuidTempMap[nextTaskTempUuid] = taskIndex + 1;
 

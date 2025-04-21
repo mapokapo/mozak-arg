@@ -1,6 +1,8 @@
 /**
  * Answers to the ARG tasks. Array element index corresponds to the task index.
  *
+ * Some tasks have multiple correct answers, in which case the answer is an array of strings.
+ *
  * Tasks:
  * 1. Find hidden base64 string in HTML source code a website, decode it, read out the pixel values drawn inside the image, decode the binary data into ASCII text.
  * 2. Download an audio file, extract the Morse code signals from the audio, decode the Morse code into ASCII text.
@@ -13,7 +15,7 @@ export const answers = [
   "SWITCH25",
   "AUDITORYCORTEX",
   "TINKER",
-  "FORTICA",
+  ["8RXJ+XC", "8RXJ+W7P", "8RXH+WXP"],
   "GOLDENRATIO",
   "SYNAPSE",
 ];
