@@ -1,0 +1,404 @@
+<!doctype html>
+<!-- PORUKA OD MoZak-a -->
+<!-- Vidim da je administrator zamolio korisnike stranice da pokušaju pronaći greške u kodu. Smiješno! Preporučujem da odmah odustanete. Moj potpis je šifriran u base64 formatu i nećete ga nikada razumjeti! -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          "Open Sans",
+          "Helvetica Neue",
+          sans-serif;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: #333;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      nav a:hover {
+        background-color: #555;
+      }
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 2rem 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+      }
+      th,
+      td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      .error {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 2rem;
+      }
+      .glitch {
+        position: relative;
+        color: #dc3545;
+      }
+      .glitch span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #dc3545;
+      }
+      .glitch span:nth-child(2) {
+        left: 2px;
+        text-shadow: -1px 0 #dc3545;
+        animation: glitch-anim 1s infinite linear alternate-reverse;
+      }
+      .glitch span:nth-child(3) {
+        left: -2px;
+        text-shadow: 1px 0 #dc3545;
+        animation: glitch-anim 1s infinite linear alternate-reverse;
+      }
+      @keyframes glitch-anim {
+        0% {
+          transform: translate(0);
+        }
+        20% {
+          transform: translate(-2px, -2px);
+        }
+        40% {
+          transform: translate(2px, 2px);
+        }
+        60% {
+          transform: translate(-2px, 2px);
+        }
+        80% {
+          transform: translate(2px, -2px);
+        }
+        100% {
+          transform: translate(0);
+        }
+      }
+      iframe {
+        margin: 1rem 0;
+        border: 2px solid #333;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#">Home</a>
+      <input
+        type="search"
+        name="search"
+        id="search" />
+    </nav>
+    <h1>Welcome!</h1>
+    <table>
+      <tr>
+        <th>About us</th>
+        <th>Contact</th>
+        <th>Home</th>
+      </tr>
+      &lt;tr&gt;
+    </table>
+
+    <div class="error">
+      <h1>Error</h1>
+      <span>
+        <strong>An error has occurred</strong>
+        <br />
+        <span
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+          quibusdam quisquam minima, tenetur nisi quasi, obcaecati magni
+          praesentium culpa illum consequuntur doloremque dolores voluptatem
+          deserunt minus. Suscipit similique iusto corrupti soluta laudantium
+          sunt ipsam reprehenderit officiis praesentium aut architecto eligendi,
+          dolores, est laborum provident blanditiis mollitia quas, nam explicabo
+          officia.</span
+        >
+      </span>
+    </div>
+    <script>
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
+    <div style="display: none">
+      <!-- MoZak ERROR: [Fatal] NullPointerException: 7-bit data did not fit into 8-bit wide rows - the image will be padded with random data -->
+      <!-- MoZak ERROR: [Warning] Binary data inverted -->
+      <span>
+        iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAALFUlEQVR4Xu1dbZujIAwEtL3//3O3VTmoWl2FGddX1PS5+9StIoyTSUiCtkq5f/GPMRn6WlkNv1b29QP/oFIGfv94POD3uirh9z8F/l5l+P5Z2fzeP2dgpiry+4fG46+yCo4fj06pqoLLpyqDr6AFABMBEFkmAcBdGEAAEJ6B25gAAYAAIDQDu5oAb+4HjHsbDeClUsha7yYChQHSYoBWlG8PAP/axZX6rgwQWIIkGeC7OH7q/ugGDlluKzfQs8lnWae6gVdlgDLLIo5kvRRP7Ga6P8F/ULwLHEeosBvxeOQ40MDu/3rD35fk98YSP5p4QSb7HUf5Aq8ZlYn66e2rgOfXahxHKMj66TgA6hGuA4CYBXexlZsBwM9pHwRxALS4vQQA4i/hHQHQn41dABB//9RODJAGAELzsLcJGM7ELgAARvBWAAjNgwAgKgLX1ABpMMCZARBj8d1F4CgYxVR41AuoH+kWGmAo/XtIPIkJCMQg24eYDYD6AvsCYLwStzcBhsxAlRM/2JD96J8X8cNxvsEzZ/kI5P4v7Ccrsh+f6yeOYwT98A5oLN/BaJyvYEkcQpE4gMVhEKUFABgg8wDQYWYJAPzI9EYA+EZrBQDpAuBjIjcCwNeCCwCOBIBVhlH4WgAYyLjFDNBaOR3SAL0wdvW6owZYxwQIA/i9iKRFYEWTYpdoAAFA8gBwNppQuAcACAM4E7CPFxBJahYvYJobCHYzJwAA+ZF7ASA2Bq0KEsn5B91gt5uE/fCSbEjbNtsm8prkucurR3vuFos4dv8qlg7RPPbD79ejUAjZzrZkPz7z11/wfLYKDa4DrCV1EekAIIKznBSGuFAiDjQRAFIAkECYWgoAkpHEni8MgJ4IdQBA
+      </span>
+      <span>
+        +BIAMAagAPCRyjgIKQNsDIDEGGBsS78mQBggPAOE4RgDJAaA8TMKAEj1nwAAF1cyG7lYBFITgLNCxQRM9QLEBNzQBDj2sxWJxYsXgLejg25g9xOqAbTbb0J3sDq0H9+JORJFUG+L9wIy4kaR3XxlSHVqRuoK2PWLAm+oZ+T+lkxQbUDiOiBjoXCDn8CS/gF6HgA6yKwGgCYQNMw9Ygt0fgCQ/gRbAKA3yYcBoI1NCwMcAIAe5R8GgHYMAoCpAAhv59jLmICIEAmbgI7D/m4CfgejmInZXgNMBUDESVgfAL+tcFgEDjVAfLdMRCDeDdKkSdZ9ROCfGOCTKuH+u+k7vRcAGMB9lbEubeszwO+VmMYAcUdSGCBxBnAJEXCEmgQacJdB38eOZLzgdIPRVubI2GhsQ/Mc9xeowE6eH1r1In0GWf8E8oaylLEnCUVbhesmKhXpz9BMpN4WANoBgDSIoABACVXeCgQA0JMxqQAgppIOA0Az7xsDYH0GGOFFGAC+QlEG4ACoMUtNQKvHYiJuZROQNgAC73mqJoADoP4LCgBiA9fWAGkDIPAWCADWFYECgIGXNlcEpswA/aAnacIVFoG9OcqN8wKAo/DxAkD1+2W9gJQB0Mf4XAC0a5qKFxBTaod7Aa4dPrTiGcnICrphvae1b5wPQNIBFO+3jyHC3mCWsvV8kJQvEsp9ETeYeMHkNAdcUuCvbYL5HN1dtQAAL8EyAFTqRTKeLgSAcKijY4BwQCfGAC2FX40BSFhrjAfW6ZMgKHkGKB3DIpKNAaAVilV2DxMQAw7TSMkDQDQAeYWXMoB3EwFKRAOQCV6mAZTTAHgv5EIaIPwoIS+g73afhwEiKVkxL6Dh7FfpAMB4GqFgLgM0kmyaCQCBEHEDT+IGRrYbKQBs4eIAIFLGKqN8wgiaojfJq2cdNp4P3KDAlqQ83L+B8IMXOMtwPgF7uV8Wh8LZ7y1JuGCFNVqT8bvaQ0gyDACKBBruC4DaZAgAdmaAIROWwgCY/4QB1jQBPfg1mjE1BhjGE7QAYE0AjF+21AAwHKEAIChhO5cvCREIvDQRgeIFYBsvXoC4gQghPuUPuIHGZY1jGxnsFdy7Y0ny6sNecsd5GWvE6Mpb0YccZ8C6vLnuCTgUl7HSLtIFTJPxk3QNlo6hCr/bBj4EAK40qcKFByEA9F2xeQDoRiwAIJVFpMfUIQDoA04AQE5c2ZEBQlvKmzBAqgAIhcvZZtQkE4D2UtYyAe09BqtI6mKOMQGzARCAqJgAMQFQxFQiAuH8LNQAvnSQ2DAis0UD7KEB4pmGCwEwzwuYbQICWBYTsLEJKBVul/0kG9asPL4sfyBFsQYUihSXsv4ElqTjmCapNFa+zZ7P1b/D53s8SX8C4qdb7IWz8y7UizC0O7CkBUBYyt4FALFVvBEAuin4QsGZlieZATZBaTBA3E9rGWBvALSMU6XDAOEpCDFAfzrPAYA4Sx8FgHZEpwRAfzrvDIDPpvF1NMB0BhAA9GZAAABFsEpDA4gJiM1AzwsQBqgPf/oduGEm7vRuoIv0fZ4x5geXhuUDxPLe6+hU8cZ58cafmwc
+      </span>
+      <span>
+        +JTkzh0SC1cN3CAEfSy5QlPi8ABpnYF4UKwwg5zIastmUkcOndQuA2BzNB0B9RQEANpGk061SAgAcabsFA4CmAvMYoHPkOQPkjqPAGmiDKV4YYC0GaBZtUKM6DwDdmDgAZmsAMQF+BlhOYswEfN/RBSbAXyMXDSAiEHHQSRmgM4opaoC+yZ7LAN9FW8AA/hqX9gI+HhRxo1J3Az2AoczdGgDu2LdP5ntsHjXRAL+OHQyo1RfLqyf18xVphWpdKAt9/pEOF6xPIKsuZkmlrPAAu4GujSQpv2eBqier6/AAgDbiLwAIXOjqAGBdzoYAGL5sLA5giI0TADAG0K7VKQg2pswAn2FTAMQP7PI/FwY4tQnwrV5Zj6KadmOxohEABhSk55qAbzyCvELnNQH1TP1JA4TEFLHBS0yAXwN27uEqDBBukNYY/MsCoH6+PwEgJKY2BIC/nWiAmAZo3sZzewHTTUBMyK/CANDPEgaA07PMDdwBAI5EIIvYAvvZFXETn0SElcSK4eJHrSwJlJQskPJ9fGjooosc63PYXs2QugBmxEt8rKPSpEOKIX3+3DjPDAA3enKu43QA4Bd5/G3tfrFGlwKATRngSADUkBAAHGgCvO/rTjyBn+0YQADw8ZPZ0cLbagBhANEAl2YAo0pSHHtxALija8nJm8eJQDEBnxk41g1MxASA/fRDvIDexgB1A43BbmCBj/1zAMDByEeOC9zZbjMNdpa4ruBl8QOQLmsu1EoK9EkwniVtatyeQb1/yA3IoVmsvF8LALAXcXkAZI4B0DssDAAYwE8c2Y0RBljTBIRyH/Y0AcFGg5hB1gfAYBBiAkQDIAh2GiCcOXRaDfB9nD0ZILjf/xcGGOftrC0Ch3cQESheAETofgwQPdeO7cIRlXUqBhg/69oMMLwDZQC33U/Swkl1Lkl5yh7YRltSu8YKP1jlzbvAB0ZoktCS/8Pjd5n7EMEFcaNcTib85DkubWNZw+8C30ALAPAEnREAfR1wbQC4dBayVaCEAbZigLZcXUxAsibAL1FxOxMw8IOEAbZigAb3OgkGiG/HCQAQALRKVAT2FpSUfyfvBbzdbiR4BvECxA0caYg+n23uBrq0cmgkDOvXTxx1TeIAhpx6VLG8+Nl9/mqx4HKOFvnhFUnsf5OsVXYiS0bqCqJtFBsUlUwE3hcA9bozABgXiEGhnmQB0MD6QADUtTHpMsA0ADAKFgCsZgLCmwXbmQABgJ8Bn1Wctgbww0ONKmdrgDsBIF73mD4ANhOBdwJAXOeeHgB+NwzpeNbtm4nATTWAYzZ6+vhcL+B4EViPQEQgLl3azA2cCID/dNUVJ8BCh+EAAAAASUVORK5CYII=
+      </span>
+    </div>
+    <script>
+      function glitchText() {
+        var elements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6");
+        for (const element of elements) {
+          element.textContent = element.textContent
+            .split(" ")
+            .map(word => {
+              return word
+                .split("")
+                .map((char, index) => {
+                  if (Math.random() < 0.1) {
+                    return String.fromCharCode(
+                      Math.floor(Math.random() * 26) + 97
+                    );
+                  }
+                  return char;
+                })
+                .join("");
+            })
+            .join(" ");
+        }
+      }
+
+      function letterColorGlitch() {
+        const textElements = document.querySelectorAll(
+          "p, h1, h2, h3, h4, h5, h6, span, a, li, td, th"
+        );
+
+        for (const textElement of textElements) {
+          const text = textElement.textContent;
+          const numOfLettersToGlitch = Math.floor(text.length * 0.2);
+          const lettersToGlitch = new Set();
+          while (lettersToGlitch.size < numOfLettersToGlitch) {
+            const randomIndex = Math.floor(Math.random() * text.length);
+            lettersToGlitch.add(randomIndex);
+          }
+          const newText = text
+            .split("")
+            .map((letter, index) => {
+              if (lettersToGlitch.has(index)) {
+                return `<span style="color: ${getRandomColor()}">${letter}</span>`;
+              }
+              return letter;
+            })
+            .join("");
+          textElement.innerHTML = newText;
+        }
+      }
+
+      function rotationGlitch() {
+        const elements = document.querySelectorAll("*");
+        for (const element of elements) {
+          element.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
+        }
+      }
+
+      function backgroundColorGlitch() {
+        const elements = document.querySelectorAll("*");
+        for (const element of elements) {
+          element.style.backgroundColor = getRandomColor();
+        }
+      }
+
+      const randomWebsites = [
+        "https://www.example.com",
+        "https://www.google.com",
+        "https://www.github.com",
+        "https://www.reddit.com",
+        "https://www.stackoverflow.com",
+      ];
+      function insertRandomWebsiteIframes() {
+        const iframe = document.createElement("iframe");
+        const randomWebsite =
+          randomWebsites[Math.floor(Math.random() * randomWebsites.length)];
+        iframe.src = randomWebsite;
+        iframe.style.width = "100%";
+        iframe.style.height = "300px";
+        iframe.style.border = "none";
+        document.body.appendChild(iframe);
+      }
+
+      function insertRandomText() {
+        const randomText =
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+        const paragraph = document.createElement("p");
+        paragraph.textContent = randomText;
+        document.body.appendChild(paragraph);
+      }
+
+      function insertRandomImages() {
+        const randomImages = [
+          "https://picsum.photos/150",
+          "https://picsum.photos/200",
+          "https://picsum.photos/250",
+        ];
+        const img = document.createElement("img");
+        img.src = randomImages[Math.floor(Math.random() * randomImages.length)];
+        img.style.width = "100px";
+        img.style.height = "100px";
+        document.body.appendChild(img);
+      }
+
+      function zoomWebsiteGlitch() {
+        const elements = document.querySelectorAll("body");
+        for (const element of elements) {
+          element.style.transform = `scale(${Math.random() * 2})`;
+          element.style.transition = "transform 0.5s ease-in-out";
+        }
+      }
+
+      function shakeWebsiteGlitch() {
+        const elements = document.querySelectorAll("*");
+        for (const element of elements) {
+          element.style.transform = `translate(${Math.random() * 10 - 5}px, ${
+            Math.random() * 10 - 5
+          }px)`;
+          element.style.transition = "transform 0.1s ease-in-out";
+        }
+      }
+
+      function changeTitleGlitch() {
+        const title = document.querySelector("title");
+        const originalTitle = title.textContent;
+        setInterval(() => {
+          title.textContent =
+            originalTitle +
+            " " +
+            String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+        }, 1000);
+      }
+
+      function insertGlitchElements() {
+        const brokenElementHtml = `<${Math.random() < 0.5 ? "div" : "span"} style="color: ${getRandomColor()}; font-size: ${Math.random() * 2 + 1}rem;">Glitch</${Math.random() < 0.5 ? "div" : "span"}>`;
+        const brokenElement = document.createElement("div");
+        brokenElement.innerHTML = brokenElementHtml;
+
+        document.body.appendChild(brokenElement);
+      }
+
+      function randomDimensionsGlitch() {
+        const elements = document.querySelectorAll("*");
+        for (const element of elements) {
+          element.style.width = `${Math.random() * 100}vw`;
+          element.style.height = `${Math.random() * 100}vh`;
+        }
+      }
+
+      function mouseMoveGlitch() {
+        const elements = document.querySelectorAll("*");
+        for (const element of elements) {
+          element.addEventListener("mousemove", function (event) {
+            const x = event.clientX / 10;
+            const y = event.clientY / 10;
+            element.style.transform = `translate(${x}px, ${y}px) rotate(${
+              Math.random() * 10 - 5
+            }deg)`;
+            element.style.transition = "transform 0.5s ease-in-out";
+          });
+        }
+      }
+    </script>
+    <script>
+      const oneTimeGlitches = [mouseMoveGlitch];
+      const intervalGlitches = {
+        subtle: [glitchText, letterColorGlitch, changeTitleGlitch],
+        medium: [
+          rotationGlitch,
+          insertRandomWebsiteIframes,
+          shakeWebsiteGlitch,
+          insertGlitchElements,
+          insertRandomText,
+          insertRandomImages,
+        ],
+        aggressive: [
+          backgroundColorGlitch,
+          zoomWebsiteGlitch,
+          randomDimensionsGlitch,
+        ],
+      };
+
+      alert(
+        "Greška: stranica nije u funkciji. Dogodio se napad na našu domenu i haker je ubacio svoj potpis u HTML kod. Ako uspijete pronaći ikakve šifrirane podatke u HTML kodu, javite mi. Hvala!"
+      );
+
+      // Run one-time glitches after a grace period of 5s
+      setTimeout(() => {
+        alert("MoZak je ovdje!");
+        oneTimeGlitches.forEach(glitch => {
+          glitch();
+        });
+      }, 5000);
+
+      // With 3s of grace period, run subtle interval glitches
+      setTimeout(() => {
+        setInterval(() => {
+          const randomGlitch =
+            intervalGlitches.subtle[
+              Math.floor(Math.random() * intervalGlitches.subtle.length)
+            ];
+          randomGlitch();
+        }, 5000);
+      }, 3000);
+      // After 10s, run medium interval glitches
+      setTimeout(() => {
+        setInterval(() => {
+          const randomGlitch =
+            intervalGlitches.medium[
+              Math.floor(Math.random() * intervalGlitches.medium.length)
+            ];
+          randomGlitch();
+        }, 5000);
+      }, 10000);
+      // After 15s, run aggressive interval glitches
+      setTimeout(() => {
+        setInterval(() => {
+          const randomGlitch =
+            intervalGlitches.aggressive[
+              Math.floor(Math.random() * intervalGlitches.aggressive.length)
+            ];
+          randomGlitch();
+        }, 5000);
+      }, 15000);
+    </script>
+  </body>
+</html>
