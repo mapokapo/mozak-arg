@@ -1,39 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <title>Hello World!</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/favicon.ico"
+      type="image/x-icon" />
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      type="image/x-icon" />
+    <title>MoZak!</title>
   </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    input[type="text"] {
+      width: 200px;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+    div {
+      margin: 20px 0;
+    }
+  </style>
   <body>
-    <p>This is a test website</p>
-    <button onclick="testRequest()">Run a test request</button>
+    <h1>Možete li nadmudriti MoZak-a?</h1>
+    <p>
+      Ako uspijete riješiti njegovih 6 zadataka, bit ćete sigurno dobro
+      nagrađeni.
+    </p>
+    <p>
+      Ako imate rješenje zadatka, unesite ga u polje ispod da dobijete sljedeći
+      zadatak.
+    </p>
+    <div>
+      <input
+        type="text"
+        id="zadatak"
+        placeholder="Unesite broj zadatka (1-6)..." />
+      <input
+        type="text"
+        id="rjesenje"
+        placeholder="Unesite rješenje..." />
+    </div>
+    <button onclick="checkAnswer()">Pošalji</button>
 
     <script>
-      async function testRequest() {
-        const data = await fetch("/test", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return res.json();
-          })
-          .catch((error) => {
-            console.error(
-              "There was a problem with the fetch operation:",
-              error
-            );
+      async function checkAnswer() {
+        const taskNumber = parseInt(document.getElementById("zadatak").value);
+        const answer = document.getElementById("rjesenje").value;
+
+        try {
+          const response = await fetch("/solve", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              taskIndex: taskNumber - 1,
+              answer,
+            }),
           });
 
-        console.log(data);
-        alert(JSON.stringify(data));
+          const data = await response.json();
+
+          if (response.status === 400) {
+            alert(
+              "Vaš unos nije ispravan. Provjerite broj zadatka i rješenje."
+            );
+            console.error("Greška:", data.error);
+            return;
+          }
+
+          if (!response.ok) {
+            alert("Greška prilikom slanja zahtjeva.");
+            return;
+          }
+
+          if (data.correct) {
+            alert(
+              `Točno! Link na sljedeći zadatak je http://localhost:5000/task/${data.nextTaskUrl}`
+            );
+          } else {
+            alert("Netočan odgovor!");
+          }
+        } catch (error) {
+          console.error("Greška:", error);
+          alert("Došlo je do greške. Pokušajte ponovo.");
+        }
       }
     </script>
   </body>
