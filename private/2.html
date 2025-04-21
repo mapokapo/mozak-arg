@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>2nd room</title>
+</head>
+
+<body>
+<div id="wrapper">
+    <div>
+        <img src="Pacer.png" id="PacerPage"/>
+        <p>
+            The multi-stage fitness test (MSFT), also known as the beep test, bleep test, PACER test (progressive aerobic cardiovascular endurance run), or the 20m shuttle run test, is a running test used to estimate an athlete's aerobic capacity.
+        </p>
+        <p>
+            The test requires participants to run 20 meters back and forth across a marked track keeping time with beeps. Every minute, the time between beeps gets shorter; and participants must run faster. If a participant fails to reach the relevant marker in time, they are cautioned. A second caution ends the test for that runner.
+        </p>
+        <p>
+            The number of shuttles completed is recorded as the score of that runner. The score is recorded in Level. Shuttles format (e.g. 9.5). The maximum laps on the PACER test is 247, which former Central Middle School student Dennis Mejia achieved, the only person to ever reach such a level. 
+        </p>
+    </div>
+    <div id="spacer"></div>
+    <div>
+        <p>
+            For further instrucions and a guide on how to conduct a pacer test, please read and listen to the instructions presented below. The instructions give a clear guide on how to proceed.
+        </p>
+        <p>
+            "The fitness grand pacer test is a multi-stage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal: "
+        </p>
+        <div id="miniWrapper">
+            <audio controls><source src="W20F550.mp3" type="audio/mp3"></audio>
+        </div>
+        <p>
+            The previous recording was that of a pacer test which was conducted at the recruitment for the United States Military Academy. Keep in mind that was just one of the examples of a pacer test being conducted. Many countries and instructors give very different instructions on how to begin and proceed with one, and it is all to one's own initiative.<br/><br/>
+        </p>        
+        <p>
+            For any further proceedings and information, sign up to our Newspaper by entering the CODE in the field below: <br/><br/>
+            <input type="text" id="CODE"/> <button type="button" onclick="Submit()" id="submit">Submit</button>
+        </p>
+    </div>
+</div>
+</body>
+
+
+<script>
+    function Submit() {
+        if(document.getElementById("CODE").value == "AUDITORY CORTEX"){
+            window.location.replace("3.html");
+        }
+    }
+</script>
+
+
+<style>
+    body{
+        background-color: darkgrey;
+        min-height: 90vh;
+        max-width: 95vw;
+        padding: 10px;
+        border: 10px solid black;
+    }
+    #miniWrapper{
+        width: 45vw;
+        display: flex;
+        justify-content: center;
+    }
+    input{
+        background-color: lightgrey;
+        font-size: 25;
+    }
+    p{
+        max-width: 45vw;
+        font-size: 19.5;
+    }
+    #PacerPage{
+        width: 45vw;
+    }
+    #wrapper{
+        display: flex;
+        flex-direction: row;
+    }
+    #spacer{
+        width: 3vw;
+    }
+    #submit{
+        background-color: darkgrey;
+        font-size: 18;
+        padding: 8px;
+    }
+</style>
+</html>
