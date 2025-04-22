@@ -34,7 +34,7 @@ const app = new Hono()
         return c.json({ error: "Task not found" }, 404);
       }
 
-      if (taskIndex >= answers.length) {
+      if (taskIndex > answers.length) {
         return c.json({ error: "Task index out of range" }, 400);
       }
 
