@@ -13,8 +13,17 @@
  */
 export const answers = [
   "SWITCH25",
-  "AUDITORYCORTEX",
+  ["AUDITORYCORTEX", "AUDITORY CORTEX"],
   "TINKER",
   ["8RXJ+XC", "8RXJ+W7P", "8RXH+WXP"],
-  "GOLDENRATIO",
+  [
+    "SIERPINSKI",
+    "SIERPINSKI TRIANGLE",
+    "TROKUT SIERPINSKOG",
+    "sierpiński",
+    "sierpiński triangle",
+    "trokut sierpińskog",
+    "FRACTAL",
+    "FRAKTAL",
+  ],
 ];
