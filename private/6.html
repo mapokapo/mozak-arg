@@ -1,5 +1,33 @@
 <!doctype html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>MoZak!</title>
+
+    <style>
+      body {
+        max-width: 100vw;
+        padding: 20px;
+        background-color: black;
+        color: green;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      input {
+        background-color: transparent;
+        border-color: transparent;
+        color: green;
+        font-size: 20;
+      }
+      input:focus {
+        outline: none;
+        width: 50vw;
+      }
+    </style>
+  </head>
   <body>
     <p>
       MoZak Operating System [Version 1.633.135.265661.131]<br />
@@ -16,228 +44,207 @@
         type="text"
         class="inputs" />
     </p>
-  </body>
 
-  <style>
-    body {
-      max-width: 100vw;
-      padding: 20px;
-      background-color: black;
-      color: green;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    input {
-      background-color: transparent;
-      border-color: transparent;
-      color: green;
-      font-size: 20;
-    }
-    input:focus {
-      outline: none;
-      width: 50vw;
-    }
-  </style>
-
-  <script>
-    let control = 0;
-    let sum = 0;
-    let firstInput = true;
-    window.addEventListener("keydown", event => {
-      if (event.key === "Enter") {
-        let pom =
-          document.getElementsByTagName("input")[
-            document.getElementsByTagName("input").length - 1
-          ];
-        if (pom.value === "help") {
-          getHelp(pom);
-        } else if (pom.value === "login") {
-          control = 1;
-          startLogin(pom);
-        } else if (pom.value === "MoZak" && control === 1) {
-          control = 2;
-          loginPassword(pom);
-        } else if (pom.value === "password" && control === 2) {
-          control = 3;
-          startGame(pom);
-        } else if (control === 3 && pom.value <= 10 && pom.value >= 1) {
-          addSum(pom);
-        } else if (control === 4 && pom.value === "DA") {
-          control = 3;
-          reset(pom);
-        } else if (control === 4 && pom.value === "NE") {
-          control = 0;
-          sum = 0;
-          window.location.reload();
-        } else if (control === 5 && pom.value === "reset") {
-          control = 0;
-          sum = 0;
-          window.location.replace("/");
+    <script>
+      let control = 0;
+      let sum = 0;
+      let firstInput = true;
+      window.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          let pom =
+            document.getElementsByTagName("input")[
+              document.getElementsByTagName("input").length - 1
+            ];
+          if (pom.value === "help") {
+            getHelp(pom);
+          } else if (pom.value === "login") {
+            control = 1;
+            startLogin(pom);
+          } else if (pom.value === "MoZak" && control === 1) {
+            control = 2;
+            loginPassword(pom);
+          } else if (pom.value === "password" && control === 2) {
+            control = 3;
+            startGame(pom);
+          } else if (control === 3 && pom.value <= 10 && pom.value >= 1) {
+            addSum(pom);
+          } else if (control === 4 && pom.value === "DA") {
+            control = 3;
+            reset(pom);
+          } else if (control === 4 && pom.value === "NE") {
+            control = 0;
+            sum = 0;
+            window.location.reload();
+          } else if (control === 5 && pom.value === "reset") {
+            control = 0;
+            sum = 0;
+            window.location.replace("/");
+          }
         }
+      });
+
+      function getHelp(pom) {
+        pom.disabled = true;
+        let text = document.createElement("p");
+        text.innerHTML =
+          "Lista dostupnih naredbi: <br/> &nbsp; help - Vraća dostupne funkcije <br/> &nbsp; login - Započinje login proces <br/><br/> C:\\Users&gt; ";
+        let input = document.createElement("input");
+        text.appendChild(input);
+
+        document.body.appendChild(text);
+        document
+          .getElementsByTagName("input")
+          [document.getElementsByTagName("input").length - 1].focus();
       }
-    });
+      function startLogin(pom) {
+        pom.disabled = true;
+        let text = document.createElement("p");
+        text.innerHTML = "Unesite username korisnika: ";
+        let input = document.createElement("input");
+        text.appendChild(input);
 
-    function getHelp(pom) {
-      pom.disabled = true;
-      let text = document.createElement("p");
-      text.innerHTML =
-        "Lista dostupnih naredbi: <br/> &nbsp; help - Vraća dostupne funkcije <br/> &nbsp; login - Započinje login proces <br/><br/> C:\\Users&gt; ";
-      let input = document.createElement("input");
-      text.appendChild(input);
+        document.body.appendChild(text);
+        document
+          .getElementsByTagName("input")
+          [document.getElementsByTagName("input").length - 1].focus();
+      }
+      function loginPassword(pom) {
+        pom.disabled = true;
+        let text = document.createElement("p");
+        text.innerHTML = "Unesite password korisnika: ";
+        let input = document.createElement("input");
+        input.type = "password";
+        text.appendChild(input);
 
-      document.body.appendChild(text);
-      document
-        .getElementsByTagName("input")
-        [document.getElementsByTagName("input").length - 1].focus();
-    }
-    function startLogin(pom) {
-      pom.disabled = true;
-      let text = document.createElement("p");
-      text.innerHTML = "Unesite username korisnika: ";
-      let input = document.createElement("input");
-      text.appendChild(input);
-
-      document.body.appendChild(text);
-      document
-        .getElementsByTagName("input")
-        [document.getElementsByTagName("input").length - 1].focus();
-    }
-    function loginPassword(pom) {
-      pom.disabled = true;
-      let text = document.createElement("p");
-      text.innerHTML = "Unesite password korisnika: ";
-      let input = document.createElement("input");
-      input.type = "password";
-      text.appendChild(input);
-
-      document.body.appendChild(text);
-      document
-        .getElementsByTagName("input")
-        [document.getElementsByTagName("input").length - 1].focus();
-    }
-    function startGame(pom) {
-      pom.disabled = true;
-      let text = document.createElement("p");
-      text.innerHTML = `Dobrodošli u Operativni sustav MoZak. Sto žel6#e u$!d=?!? K%3%!fdAT25PG?#<br/><br/>Nisam mislio da ces doći ovako daleko. 
+        document.body.appendChild(text);
+        document
+          .getElementsByTagName("input")
+          [document.getElementsByTagName("input").length - 1].focus();
+      }
+      function startGame(pom) {
+        pom.disabled = true;
+        let text = document.createElement("p");
+        text.innerHTML = `Dobrodošli u Operativni sustav MoZak. Sto žel6#e u$!d=?!? K%3%!fdAT25PG?#<br/><br/>Nisam mislio da ces doći ovako daleko. 
     Stvarno mislis da ću ti pustiti da me ovako lako uništiš? Ali poštujem tvoju upornost.<br/>
     Hajde ovako. Pustit ću te da nastavis AKO me pobijediš u mojoj igri. Ovo su pravila...<br/><br/>
     Naizmjenično ćemo zadavati cijele brojeve od 1 do 10. Možemo koristiti i broj 10. Zbrajamo sve brojeve koje smo do sada izabrali.<br/>
     Pobjednik je onaj koji dovede ukupni zbroj do 100. Budući da si gost, ti počinješ.<br/>`;
 
-      let promptText = document.createElement("p");
+        let promptText = document.createElement("p");
 
-      promptText.innerHTML = "Tvoj broj: ";
+        promptText.innerHTML = "Tvoj broj: ";
 
-      let input = document.createElement("input");
-      promptText.appendChild(input);
+        let input = document.createElement("input");
+        promptText.appendChild(input);
 
-      document.body.appendChild(text);
-      setTimeout(() => {
-        text.after(promptText);
+        document.body.appendChild(text);
+        setTimeout(() => {
+          text.after(promptText);
+          document
+            .getElementsByTagName("input")
+            [document.getElementsByTagName("input").length - 1].focus();
+        }, 20);
+      }
+
+      async function getMozakInput(sum) {
+        try {
+          const response = await fetch("/mozak", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ currentSum: sum }),
+          });
+
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+
+          const data = await response.json();
+
+          return data;
+        } catch (error) {
+          alert("Error fetching MoZak input: " + error);
+          console.error("Error fetching MoZak input:", error);
+          return 0; // Fallback value in case of error
+        }
+      }
+
+      async function addSum(pom) {
+        sum += parseInt(pom.value);
+        let text = document.createElement("p");
+        pom.disabled = true;
+        if (sum < 100) {
+          const data = await getMozakInput(sum);
+          if ("winningCode" in data) {
+            // korisnik moze pobijediti ovdje (ali ne mora znaciti sigurno)
+            localStorage.setItem("winningCode", data.winningCode);
+          }
+          const mozakInput = data.mozakInput;
+
+          sum += mozakInput;
+          if (sum < 100) {
+            text.innerHTML =
+              "Ja biram broj " +
+              mozakInput +
+              ". Nova ukupna suma je " +
+              sum +
+              ".<br/> Tvoj broj: ";
+          } else {
+            text.innerHTML =
+              "Ja biram broj " +
+              mozakInput +
+              ". Nova ukupna suma je " +
+              sum +
+              ".<br/> To znači da sam pobijedio! Želiš pokušati opet? (DA/NE)<br/>";
+            sum = 0;
+            control = 4;
+          }
+        } else if (sum > 100) {
+          text.innerHTML =
+            "Ako si odabrao broj " +
+            pom.value +
+            ", nova ukupna suma je " +
+            sum +
+            " što je preko 100.<br/> To znači da si promašio pobjedu! Želiš pokušati opet? (DA/NE)<br/>";
+          sum = 0;
+          control = 4;
+        } else if (sum === 100) {
+          const winningCode = localStorage.getItem("winningCode");
+          if (!winningCode) {
+            text.innerHTML =
+              "Čestitam! Pobijedio si! Ali mali problem, izgleda da si negdje izgubio dobitni kod... Bez brige, pokušaj ponovno!<br/> C:\\MoZak&gt; ";
+            control = 0;
+            return;
+          }
+          text.innerHTML = `NEEEE! Ne može biti! Nisam mogao izgubitiii! Ali dogovor je dogovor. Tvoj dobitni kod je: ${winningCode}<br/> Pretpostavljam da me želiš vratiti na stanje prije mojih 'promjena'... <br/> Ako želiš, samo ukucaj naredbu 'reset'... <br/> C:\\MoZak&gt; `;
+          control = 5;
+        }
+
+        let input = document.createElement("input");
+        text.appendChild(input);
+
+        let body = document.body;
+        body.removeChild(body.childNodes[body.childNodes.length - 1]);
+
+        document.body.appendChild(text);
         document
           .getElementsByTagName("input")
           [document.getElementsByTagName("input").length - 1].focus();
-      }, 20);
-    }
-
-    async function getMozakInput(sum) {
-      try {
-        const response = await fetch("/mozak", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ currentSum: sum }),
-        });
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-
-        return data;
-      } catch (error) {
-        alert("Error fetching MoZak input: " + error);
-        console.error("Error fetching MoZak input:", error);
-        return 0; // Fallback value in case of error
-      }
-    }
-
-    async function addSum(pom) {
-      sum += parseInt(pom.value);
-      let text = document.createElement("p");
-      pom.disabled = true;
-      if (sum < 100) {
-        const data = await getMozakInput(sum);
-        if ("winningCode" in data) {
-          // korisnik moze pobijediti ovdje (ali ne mora znaciti sigurno)
-          localStorage.setItem("winningCode", data.winningCode);
-        }
-        const mozakInput = data.mozakInput;
-
-        sum += mozakInput;
-        if (sum < 100) {
-          text.innerHTML =
-            "Ja biram broj " +
-            mozakInput +
-            ". Nova ukupna suma je " +
-            sum +
-            ".<br/> Tvoj broj: ";
-        } else {
-          text.innerHTML =
-            "Ja biram broj " +
-            mozakInput +
-            ". Nova ukupna suma je " +
-            sum +
-            ".<br/> To znači da sam pobijedio! Želiš pokušati opet? (DA/NE)<br/>";
-          sum = 0;
-          control = 4;
-        }
-      } else if (sum > 100) {
-        text.innerHTML =
-          "Ako si odabrao broj " +
-          pom.value +
-          ", nova ukupna suma je " +
-          sum +
-          " što je preko 100.<br/> To znači da si promašio pobjedu! Želiš pokušati opet? (DA/NE)<br/>";
-        sum = 0;
-        control = 4;
-      } else if (sum === 100) {
-        const winningCode = localStorage.getItem("winningCode");
-        if (!winningCode) {
-          text.innerHTML =
-            "Čestitam! Pobijedio si! Ali mali problem, izgleda da si negdje izgubio dobitni kod... Bez brige, pokušaj ponovno!<br/> C:\\MoZak&gt; ";
-          control = 0;
-          return;
-        }
-        text.innerHTML = `NEEEE! Ne može biti! Nisam mogao izgubitiii! Ali dogovor je dogovor. Tvoj dobitni kod je: ${winningCode}<br/> Pretpostavljam da me želiš vratiti na stanje prije mojih 'promjena'... <br/> Ako želiš, samo ukucaj naredbu 'reset'... <br/> C:\\MoZak&gt; `;
-        control = 5;
       }
 
-      let input = document.createElement("input");
-      text.appendChild(input);
+      function reset(pom) {
+        pom.disabled = true;
+        let text = document.createElement("p");
+        text.innerHTML = "Tvoj broj: ";
+        let input = document.createElement("input");
+        text.appendChild(input);
 
-      let body = document.body;
-      body.removeChild(body.childNodes[body.childNodes.length - 1]);
-
-      document.body.appendChild(text);
-      document
-        .getElementsByTagName("input")
-        [document.getElementsByTagName("input").length - 1].focus();
-    }
-
-    function reset(pom) {
-      pom.disabled = true;
-      let text = document.createElement("p");
-      text.innerHTML = "Tvoj broj: ";
-      let input = document.createElement("input");
-      text.appendChild(input);
-
-      document.body.appendChild(text);
-      document
-        .getElementsByTagName("input")
-        [document.getElementsByTagName("input").length - 1].focus();
-    }
-  </script>
+        document.body.appendChild(text);
+        document
+          .getElementsByTagName("input")
+          [document.getElementsByTagName("input").length - 1].focus();
+      }
+    </script>
+  </body>
 </html>

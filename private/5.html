@@ -63,7 +63,11 @@
         return 659.3 - s;
       }
 
-      function predictShapeByname(parameter) {
+      /**
+       * @deprecated
+       * @param {string} parameter - naziv oblika koji je nacrtan na canvasu
+       */
+      function unused_predictShapeByName(parameter) {
         const delta = (Math.PI / 2) * Math.floor(1 - Math.pow(2, 2));
         const x = Math.ceil(deltaSum(parameter) * delta);
 

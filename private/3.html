@@ -1,5 +1,66 @@
 <!doctype html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>MoZak!</title>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: #8eeb8d;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 22;
+      }
+      span {
+        margin-top: 2vh;
+        margin-right: 1vw;
+      }
+      input {
+        background-color: #8eeb8d;
+      }
+      .articles {
+        width: 40%;
+        margin: 2.5%;
+        min-height: 25vh;
+        background-color: #8eeb8d;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .articlePicture {
+        height: 30vh;
+        width: 100%;
+      }
+      #header {
+        width: 100vw;
+        height: 15vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 8vh;
+        color: darkgreen;
+      }
+      #logo {
+        height: 15vh;
+        width: 10vw;
+      }
+      #main {
+        background-color: #649c64;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      #footer {
+        margin-top: 5vh;
+      }
+    </style>
+  </head>
   <body>
     <div id="header">
       <img
@@ -60,7 +121,7 @@
           skraćenicu V.
         </p>
         <img
-          src="MyImage.png"
+          src="/MyImage.png"
           class="articlePicture" />
         <p>
           Naime, znanstvenici su otkrili da prevođenjem DNK sekvenci u proteine
@@ -98,58 +159,4 @@
     </div>
     <div id="footer">(c) All Rights Reserved</div>
   </body>
-
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-      background-color: #8eeb8d;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 22;
-    }
-    span {
-      margin-top: 2vh;
-      margin-right: 1vw;
-    }
-    input {
-      background-color: #8eeb8d;
-    }
-    .articles {
-      width: 40%;
-      margin: 2.5%;
-      min-height: 25vh;
-      background-color: #8eeb8d;
-      padding: 10px;
-      border-radius: 10px;
-    }
-    .articlePicture {
-      height: 30vh;
-      width: 100%;
-    }
-    #header {
-      width: 100vw;
-      height: 15vh;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      font-size: 8vh;
-      color: darkgreen;
-    }
-    #logo {
-      height: 15vh;
-      width: 10vw;
-    }
-    #main {
-      background-color: #649c64;
-      width: 80%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    #footer {
-      margin-top: 5vh;
-    }
-  </style>
 </html>

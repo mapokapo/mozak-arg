@@ -1,14 +1,55 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>2nd room</title>
-  </head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>MoZak!</title>
 
+    <style>
+      body {
+        background-color: darkgrey;
+        min-height: 90vh;
+        max-width: 95vw;
+        padding: 10px;
+        border: 10px solid black;
+      }
+      #miniWrapper {
+        width: 45vw;
+        display: flex;
+        justify-content: center;
+      }
+      input {
+        background-color: lightgrey;
+        font-size: 25;
+      }
+      p {
+        max-width: 45vw;
+        font-size: 19.5;
+      }
+      #PacerPage {
+        width: 45vw;
+      }
+      #wrapper {
+        display: flex;
+        flex-direction: row;
+      }
+      #spacer {
+        width: 3vw;
+      }
+      #submit {
+        background-color: darkgrey;
+        font-size: 18;
+        padding: 8px;
+      }
+    </style>
+  </head>
   <body>
     <div id="wrapper">
       <div>
         <img
-          src="Pacer.png"
+          src="/Pacer.png"
           id="PacerPage" />
         <p>
           The multi-stage fitness test (MSFT), also known as the beep test,
@@ -48,7 +89,7 @@
         <div id="miniWrapper">
           <audio controls>
             <source
-              src="W20F550.mp3"
+              src="/W20F550.mp3"
               type="audio/mp3" />
           </audio>
         </div>
@@ -62,42 +103,4 @@
       </div>
     </div>
   </body>
-
-  <style>
-    body {
-      background-color: darkgrey;
-      min-height: 90vh;
-      max-width: 95vw;
-      padding: 10px;
-      border: 10px solid black;
-    }
-    #miniWrapper {
-      width: 45vw;
-      display: flex;
-      justify-content: center;
-    }
-    input {
-      background-color: lightgrey;
-      font-size: 25;
-    }
-    p {
-      max-width: 45vw;
-      font-size: 19.5;
-    }
-    #PacerPage {
-      width: 45vw;
-    }
-    #wrapper {
-      display: flex;
-      flex-direction: row;
-    }
-    #spacer {
-      width: 3vw;
-    }
-    #submit {
-      background-color: darkgrey;
-      font-size: 18;
-      padding: 8px;
-    }
-  </style>
 </html>
