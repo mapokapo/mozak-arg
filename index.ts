@@ -2,8 +2,8 @@ import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { z } from "zod";
 import { answers } from "./lib/config/answers";
-import { randomUUIDv7 as uuid } from "bun";
-import { serveStatic } from "hono/bun";
+import { serveStatic } from "@hono/node-server/serve-static";
+import { v4 as uuid } from "uuid";
 
 /**
  * This is an ephemeral lookup table which maps temporary UUIDs to task indexes.
