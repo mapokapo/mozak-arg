@@ -1,15 +1,8 @@
 # mozak-arg
 
-To install dependencies:
+Za instalirati bun (potreban za pokretanje):
+`powershell -c "irm bun.sh/install.ps1 | iex"`
 
-```bash
-bun install
-```
+Za instalirati dependencies: `bun i`
 
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.5. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Za pokretanje ARG-a: `bun run build` pa `bun run start`

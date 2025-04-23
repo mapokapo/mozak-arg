@@ -132,6 +132,7 @@ app.use(
   })
 );
 
+console.log(`Mode: ${process.env["NODE_ENV"] ?? "development"}`);
 if (process.env["NODE_ENV"] !== "production") {
   app.use(
     serveStatic({
