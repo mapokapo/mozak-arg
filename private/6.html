@@ -20,7 +20,7 @@
         background-color: transparent;
         border-color: transparent;
         color: green;
-        font-size: 20;
+        font-size: 20px;
       }
       input:focus {
         outline: none;
@@ -49,13 +49,14 @@
       let control = 0;
       let sum = 0;
       let firstInput = true;
+      let attempts = 0;
       window.addEventListener("keydown", event => {
         if (event.key === "Enter") {
           let pom =
             document.getElementsByTagName("input")[
               document.getElementsByTagName("input").length - 1
             ];
-          if (pom.value === "help") {
+          if (pom.value === "help" && control === 0) {
             getHelp(pom);
           } else if (pom.value === "login") {
             control = 1;
@@ -68,8 +69,12 @@
             startGame(pom);
           } else if (control === 3 && pom.value <= 10 && pom.value >= 1) {
             addSum(pom);
-          } else if (control === 4 && pom.value === "DA") {
+          } else if (control === 4 && pom.value.toUpperCase() === "DA") {
             control = 3;
+            attempts++;
+            if(attempts === 5)czer();
+            else if(attempts === 10)kjot();
+            else if(attempts === 15)flub();
             reset(pom);
           } else if (control === 4 && pom.value === "NE") {
             control = 0;
@@ -121,6 +126,14 @@
           .getElementsByTagName("input")
           [document.getElementsByTagName("input").length - 1].focus();
       }
+
+      function flub(){
+          var text = document.createElement('p');
+          text.innerHTML = "*Hint* Ako stalno upadas u iste probleme, mozda je problem kako pocimas sa rjesavanjem problema...";
+
+          document.getElementsByTagName("body")[0].appendChild(text);
+      }
+
       function startGame(pom) {
         pom.disabled = true;
         let text = document.createElement("p");
@@ -168,6 +181,13 @@
           console.error("Error fetching MoZak input:", error);
           return 0; // Fallback value in case of error
         }
+      }
+
+      function kjot(){
+          var text = document.createElement('p');
+          text.innerHTML = "*Hint* Pokusaj pratiti odnos tvog unosa, onoga sto MoZak odgovara i ukupne sume. Mora postojati neki trik!";
+
+          document.getElementsByTagName("body")[0].appendChild(text);
       }
 
       async function addSum(pom) {
@@ -244,6 +264,13 @@
         document
           .getElementsByTagName("input")
           [document.getElementsByTagName("input").length - 1].focus();
+      }
+
+      function czer(){
+          var text = document.createElement('p');
+          text.innerHTML = "*Hint* MoZak je napravljen da radi savrseno. Jedini nacin da ga pobjedis je da ga imitiras!";
+
+          document.getElementsByTagName("body")[0].appendChild(text);
       }
     </script>
   </body>
