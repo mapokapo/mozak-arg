@@ -14,7 +14,7 @@
 export const answers = [
   "SWITCH25",
   ["AUDITORYCORTEX", "AUDITORY CORTEX"],
-  "TINKER",
+  "START",
   ["8RXJ+XC", "8RXJ+W7P", "8RXH+WXP"],
   "2025",
 ];
